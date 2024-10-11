@@ -105,9 +105,9 @@ async function fetchData() {
         let feelsLike = document.getElementById('feels-like')
         feelsLike.innerHTML = `${Math.round(data.main.feels_like)}°C`;
         let humidity = document.getElementById('humidity');
-        humidity.innerHTML = `<img src="images/icon-umberella.png" alt="" id=""> ${data.main.humidity}%`;
+        humidity.innerHTML = ` ${data.main.humidity}%`;
         let windSpeed = document.getElementById('wind-speed');
-        windSpeed.innerHTML = `<img src="images/icon-wind.png" alt=""> ${data.wind.speed} km/h`;
+        windSpeed.innerHTML = `${data.wind.speed} km/h`;
         console.log(data.wind.speed);
         let sunrise = document.getElementById('sunrise');
         let sunriseTime = new Date(data.sys.sunrise * 1000)
@@ -124,7 +124,7 @@ async function fetchData() {
         let formattedSunSet = `${sunSetTime.getHours()}:${sunSetTime.getMinutes()}:${sunSetTime.getSeconds()}`
         sunset.innerHTML = formattedSunSet;
         let desc = document.getElementById('description');
-        desc.innerHTML = `Description: ${data.weather[0].description}`
+        desc.innerHTML = `${data.weather[0].description}`
 
 
     } catch (error) {
