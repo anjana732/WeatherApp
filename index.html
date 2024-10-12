@@ -21,6 +21,31 @@
 		<script src="js/ie-support/respond.js"></script>
 		<![endif]-->
 
+		<style>
+			h3 {
+				margin: 0;
+				font-size: 2em;
+				font-weight: bold;
+				color: #ffffff;
+				line-height: 1.2;
+				padding: 10px;
+				text-align: center;
+			}
+		
+			/* Responsive font sizing */
+			@media (max-width: 768px) {
+				h3 {
+					font-size: 1.5em;
+				}
+			}
+		
+			@media (max-width: 480px) {
+				h3 {
+					font-size: 1.2em;
+				}
+			}
+		</style>
+		
 	</head>
 
 
@@ -276,7 +301,17 @@
 					</div>
 				</div> -->
 			</main> 
-
+			<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 20px;">
+				<h3 style="margin: 0; font-size: 2em; font-weight: bold; color: #ffffff; line-height: 1.2; padding: 10px;">
+					5 Days Weather Forecast
+				</h3>
+				<!-- Other content here -->
+			</div>
+			<!-- <div id="graph" style="border-radius: 20px; background: linear-gradient(135deg, #2d2d2d, #1c1c1c); padding: 20px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); width: 600px; margin: 20px auto;"> -->
+				<div id="right" style="display: flex; justify-content: center; align-items: center; margin-bottom: 40px; padding-left: 85px; margin-right: 85px;">
+					<div id="container" style="width: 100%; height: 300px; border-radius: 15px; background: #1c1c1c; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); padding: 10px;"></div>
+				</div>
+			<!-- </div> -->
 			<footer class="site-footer">
 				<div class="container">
 					<div class="row">
@@ -286,9 +321,7 @@
 								<input type="submit" value="Subscribe">
 							</form>
 						</div> -->
-						<div id="right">
-							<div id="container" style="width: 500px; height: 300px;"></div>
-						</div>
+						
 						<div class="col-md-3 col-md-offset-1" style="float: right;">
 							<div class="social-links">
 								<a href="#"><i class="fa fa-facebook"></i></a>
