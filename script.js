@@ -57,27 +57,74 @@ async function forecast() {
         console.log(error)
     }
 }
+
+
 forecast();
+// function drawGraph() {
+//     var dataSet = anychart.data.set(graphData);
+//     var chart = anychart.line();
+//     chart.xAxis().title("Date");
+//     chart.yAxis().title("Temperature");
+
+//     var firstSeriesData = dataSet.mapAs({ x: 0, value: 1 });
+//     chart.line(firstSeriesData);
+
+//     chart.legend().enabled(true);
+//     chart.listen("chartdraw", function() {
+//         console.log("Chart drawn");
+//     });
+
+//     chart.listen("error", function(e) {
+//         console.log("Error drawing chart:", e);
+//     });
+//     chart.container("container");
+//     chart.draw();
+// }
+
 function drawGraph() {
     var dataSet = anychart.data.set(graphData);
     var chart = anychart.line();
-    chart.xAxis().title("Date");
-    chart.yAxis().title("Temperature");
 
+    // Dark Theme Styling
+    chart.background().fill("#1c1c1c"); // Dark background color
+    chart.xAxis().title("Date").labels().fontColor("#e0e0e0");
+    chart.yAxis().title("Temperature").labels().fontColor("#e0e0e0");
+
+    // Customize the axes lines and grid
+    chart.xAxis().stroke("#e0e0e0");
+    chart.yAxis().stroke("#e0e0e0");
+    chart.xGrid().enabled(true).stroke("#333");
+    chart.yGrid().enabled(true).stroke("#333");
+
+    // Line series styling
     var firstSeriesData = dataSet.mapAs({ x: 0, value: 1 });
-    chart.line(firstSeriesData);
+    var lineSeries = chart.line(firstSeriesData);
+    lineSeries.stroke("#ffab00", 2); // Line color and thickness
 
-    chart.legend().enabled(true);
+    // Tooltip and legend styling for dark theme
+    chart.tooltip()
+        .background("#333")
+        .fontColor("#e0e0e0")
+        .fontSize(12)
+        .title().fontColor("#ffab00");
+
+    chart.legend()
+        .enabled(true)
+        .fontColor("#e0e0e0")
+        .background().fill("#1c1c1c");
+
+    // Listen for events for debugging (optional)
     chart.listen("chartdraw", function() {
         console.log("Chart drawn");
     });
-
     chart.listen("error", function(e) {
         console.log("Error drawing chart:", e);
     });
+
     chart.container("container");
     chart.draw();
 }
+
 
 async function main() {
     await forecast();
